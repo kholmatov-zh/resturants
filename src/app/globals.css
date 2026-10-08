@@ -1746,3 +1746,253 @@ footer p {
   padding: 6px 10px;
   border-radius: 20px;
 }
+
+.admin-site {
+  min-height: 100vh;
+  background: #f4f5ed;
+}
+.admin-login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 35px 18px;
+}
+.admin-login-card {
+  width: min(100%, 480px);
+  padding: 35px;
+  background: #fffdf8;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.admin-login-card .eyebrow {
+  margin-top: 35px;
+}
+.admin-login-card h1 {
+  font-size: 36px;
+  line-height: 1.15;
+  margin: 15px 0;
+}
+.admin-login-card > p,
+.admin-setup p {
+  font-size: 13px;
+  color: var(--muted);
+}
+.admin-login-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+.admin-login-form label {
+  font-size: 12px;
+  font-weight: 600;
+}
+.admin-login-form input {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 0;
+  width: 100%;
+  background: #fff;
+  font: inherit;
+}
+.admin-login-form button {
+  margin-top: 12px;
+}
+.admin-login-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.admin-error {
+  background: #f8e9dd;
+  color: #833e29 !important;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-top: 15px;
+}
+.admin-setup {
+  background: #edf0e2;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 25px;
+}
+.admin-setup h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.admin-setup pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 10px;
+  line-height: 1.8;
+  margin: 15px 0;
+}
+.admin-setup a {
+  display: inline-block;
+  font-size: 12px;
+  text-decoration: underline;
+  margin-top: 18px;
+}
+.admin-shell {
+  display: grid;
+  grid-template-columns: 245px 1fr;
+  min-height: 100vh;
+}
+.admin-sidebar {
+  background: #254b38;
+  color: #fff;
+  padding: 30px 23px;
+}
+.admin-sidebar > p {
+  font-size: 11px;
+  margin: 8px 0;
+  color: #d8e5c2;
+}
+.admin-sidebar nav {
+  display: grid;
+  gap: 8px;
+  margin: 35px 0;
+}
+.admin-sidebar nav a {
+  padding: 13px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.admin-sidebar nav a:hover {
+  background: #ffffff18;
+}
+.admin-sidebar .button {
+  color: white;
+  border-color: #ffffff60;
+}
+.admin-content {
+  padding: 50px;
+  width: 100%;
+  min-width: 0;
+}
+.admin-content h1 {
+  font-size: 40px;
+}
+.admin-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 30px 0;
+}
+.admin-stat-grid article,
+.admin-panel {
+  padding: 25px;
+  background: #fffdf8;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.admin-stat-grid p {
+  font-size: 12px;
+  color: var(--muted);
+}
+.admin-stat-grid strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 38px;
+}
+.admin-panel {
+  margin-top: 28px;
+}
+.admin-panel > p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.admin-section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.admin-section-heading h2 {
+  font-size: 20px;
+}
+.admin-section-heading a {
+  font-size: 12px;
+}
+.admin-record-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+}
+.admin-record-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.admin-record-list li:last-child {
+  border: 0;
+}
+.admin-record-list li > span:last-child {
+  font-size: 11px;
+  color: var(--muted);
+}
+.admin-record-list p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+@media (max-width: 1000px) {
+  .admin-content {
+    padding: 30px;
+  }
+  .admin-stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .admin-shell {
+    grid-template-columns: 210px 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+  .admin-sidebar {
+    padding: 20px;
+  }
+  .admin-sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin: 15px 0;
+  }
+  .admin-sidebar nav a {
+    padding: 8px;
+  }
+  .admin-sidebar form {
+    display: inline-block;
+  }
+  .admin-sidebar .button {
+    padding: 9px 16px;
+  }
+  .admin-content {
+    padding: 25px 18px;
+  }
+  .admin-content h1 {
+    font-size: 33px;
+  }
+  .admin-panel {
+    padding: 20px;
+  }
+  .admin-section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+  .admin-login-card {
+    padding: 27px;
+  }
+  .admin-login-card h1 {
+    font-size: 30px;
+  }
+}
