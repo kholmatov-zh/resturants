@@ -137,7 +137,10 @@ export const dictionaries = {
       "O‘z restoraningizga mos onlayn menu yaratish shartlarini muhokama qiling.",
     contactPending: "Aloqa ma’lumotlari tez orada e’lon qilinadi.",
     footerDesc: "Mehmondo‘stlik raqamli ko‘rinishda.",
-    privacy: "Maxfiylik",
+    privacy: "Maxfiylik siyosati",
+    offer: "Ommaviy oferta",
+    writeTelegram: "Telegramga yozish",
+    writeEmail: "Email orqali yozish",
     privacyTitle: "Maxfiylik haqida",
     privacyText:
       "Ushbu sahifada ariza yuborish va shaxsiy ma’lumot yig‘ish hali yoqilmagan. Til tanlovingiz faqat brauzeringizda saqlanadi. Arizalar ishga tushirilishidan oldin to‘liq maxfiylik siyosati e’lon qilinadi.",
@@ -286,7 +289,10 @@ export const dictionaries = {
       "Обсудите условия создания онлайн-меню в стиле вашего заведения.",
     contactPending: "Контактные данные будут опубликованы в ближайшее время.",
     footerDesc: "Гостеприимство в цифровом формате.",
-    privacy: "Конфиденциальность",
+    privacy: "Политика конфиденциальности",
+    offer: "Публичная оферта",
+    writeTelegram: "Написать в Telegram",
+    writeEmail: "Написать на почту",
     privacyTitle: "О конфиденциальности",
     privacyText:
       "На этой странице пока не включены отправка заявок и сбор персональных данных. Выбор языка сохраняется только в вашем браузере. До запуска заявок будет опубликована полная политика конфиденциальности.",

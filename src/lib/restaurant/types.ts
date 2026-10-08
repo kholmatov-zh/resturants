@@ -33,6 +33,7 @@ export type RestaurantMenu = {
   primaryColor: string;
   secondaryColor: string;
   cover: string;
+  logo?: string;
   coverKind: "photo" | "illustration";
   monogram: string;
   status: "draft" | "published" | "archived";

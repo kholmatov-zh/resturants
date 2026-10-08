@@ -90,7 +90,17 @@ export function RestaurantMenuView({
         <section className="restaurant-hero menu-container">
           <div className="restaurant-intro">
             <span className="restaurant-logo" aria-hidden="true">
-              {restaurant.monogram}
+              {restaurant.logo ? (
+                <Image
+                  src={restaurant.logo}
+                  unoptimized
+                  alt=""
+                  width={58}
+                  height={58}
+                />
+              ) : (
+                restaurant.monogram
+              )}
             </span>
             <h1>{restaurant.name}</h1>
             <p className="restaurant-description">
@@ -132,13 +142,21 @@ export function RestaurantMenuView({
             </div>
           </div>
           <div className="restaurant-cover">
-            <Image
-              src={restaurant.cover}
-              alt={restaurant.name}
-              fill
-              sizes="(max-width: 700px) 100vw, 50vw"
-              priority
-            />
+            {restaurant.cover ? (
+              <Image
+                unoptimized={restaurant.cover.startsWith("/media/")}
+                src={restaurant.cover}
+                alt={restaurant.name}
+                fill
+                sizes="(max-width: 700px) 100vw, 50vw"
+                priority
+              />
+            ) : (
+              <div className="restaurant-cover-empty">
+                <Utensils size={70} />
+                <span>{restaurant.name}</span>
+              </div>
+            )}
             {restaurant.coverKind === "illustration" && (
               <span>{t.illustration}</span>
             )}
@@ -216,6 +234,7 @@ export function RestaurantMenuView({
                     >
                       <Image
                         src={item.image}
+                        unoptimized={item.image.startsWith("/media/")}
                         alt={item.name[locale]}
                         fill
                         sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
@@ -383,6 +402,7 @@ export function RestaurantMenuView({
           <div className="enlarged-photo">
             <Image
               src={photo.image}
+              unoptimized={photo.image.startsWith("/media/")}
               alt={photo.name[locale]}
               width={900}
               height={650}

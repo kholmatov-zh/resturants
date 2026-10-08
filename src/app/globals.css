@@ -1996,3 +1996,205 @@ footer p {
     font-size: 30px;
   }
 }
+
+.editor-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+.editor-field {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 0;
+}
+.editor-field input,
+.editor-field textarea,
+.editor-field select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  color: var(--foreground);
+}
+.editor-field textarea {
+  resize: vertical;
+  font-weight: 400;
+}
+.editor-field input[type="color"] {
+  height: 45px;
+  padding: 5px;
+}
+.editor-field input[readonly] {
+  background: #f0f1e8;
+  color: var(--muted);
+}
+.editor-field input:focus-visible,
+.editor-field select:focus-visible,
+.editor-field textarea:focus-visible {
+  outline: 2px solid #759b43;
+  outline-offset: 2px;
+}
+.editor-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.editor-toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+}
+.editor-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+.editor-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.editor-hint {
+  font-size: 11px !important;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.editor-image img {
+  border-radius: 9px;
+  object-fit: contain;
+  background: #e8eddd;
+  margin: 14px 0;
+  height: 150px;
+  max-width: 100%;
+}
+.editor-submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+.editor-submit .admin-error {
+  margin-top: 0;
+}
+.editor-success {
+  font-size: 12px;
+  color: #38613e;
+  background: #eaf0df;
+  padding: 12px;
+  border-radius: 8px;
+}
+.editor-details {
+  border-top: 1px solid var(--border);
+  margin-top: 18px;
+  padding-top: 18px;
+}
+.editor-details summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.editor-details .editor-form {
+  padding: 15px 0;
+}
+.editor-item {
+  padding-top: 20px;
+}
+.editor-record-link {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+}
+.editor-record-link span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.bulk-editor {
+  background: #eef1e3;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 25px;
+}
+.bulk-editor > p {
+  font-size: 12px;
+}
+.restaurant-cover-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--restaurant-secondary);
+  color: var(--restaurant-primary);
+}
+.restaurant-cover-empty span {
+  font-size: 24px;
+  font-family: Georgia, serif;
+}
+.restaurant-logo img {
+  border-radius: 50%;
+  object-fit: contain;
+}
+.footer-documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 12px;
+  justify-content: flex-end;
+}
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.legal-page {
+  padding-bottom: 70px;
+}
+.legal-page h1 {
+  font-size: 46px;
+  line-height: 1.15;
+  max-width: 800px;
+  margin: 40px 0 30px;
+}
+.legal-content {
+  max-width: 800px;
+  white-space: pre-wrap;
+}
+.legal-content p {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 20px 0;
+}
+.legal-date {
+  font-size: 12px;
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .editor-two-columns {
+    grid-template-columns: 1fr;
+  }
+  .editor-toggles {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .editor-submit {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .editor-submit .button {
+    width: 100%;
+  }
+  .footer-documents {
+    justify-content: flex-start;
+  }
+  .legal-page h1 {
+    font-size: 32px;
+  }
+}
+.footer-owner{font-size:10px;color:var(--muted);margin-top:10px;letter-spacing:.1px}

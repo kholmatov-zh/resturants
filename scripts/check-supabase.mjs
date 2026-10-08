@@ -21,8 +21,8 @@ const client = createClient(config.url, config.key, {
   auth: { persistSession: false, autoRefreshToken: false },
 });
 let failures = 0;
-for (const table of ["restaurants", "categories", "menu_items"]) {
-  const { error } = await client.from(table).select("id").limit(1);
+for (const table of ["restaurants", "categories", "menu_items", "platform_settings", "legal_documents"]) {
+  const { error } = await client.from(table).select(table === "legal_documents" ? "kind" : "id").limit(1);
   if (error) {
     failures++;
     console.error(

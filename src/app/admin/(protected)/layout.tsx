@@ -18,6 +18,7 @@ export default async function ProtectedLayout({
           <Link href="/admin">Обзор</Link>
           <Link href="/admin/restaurants">Рестораны</Link>
           <Link href="/admin/leads">Заявки</Link>
+          <Link href="/admin/settings">Контакты и документы</Link>
           <Link href="/demo">Посмотреть демо ↗</Link>
         </nav>
         <form action={logout}>

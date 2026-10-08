@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "supabase:check": "node --experimental-strip-types scripts/check-supabase.mjs",
-    "test:admin": "node tests/admin.integration.mjs"
+    "test:admin": "node tests/admin.integration.mjs",
+    "test:editors": "node tests/editors.integration.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -23,6 +24,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
     "tailwind-merge": "^3.3.1",
     "zod": "^4.6.5"
   },

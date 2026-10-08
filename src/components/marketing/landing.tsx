@@ -21,16 +21,19 @@ import {
   X,
 } from "lucide-react";
 import { dictionaries, type Locale } from "@/lib/i18n/dictionaries";
-import { platform } from "@/config/platform";
+import { platform as defaults, type PlatformSettings } from "@/config/platform";
 import { buttonVariants } from "@/components/ui/button";
-import { Modal } from "@/components/ui/dialog";
 const anchors = ["features", "examples", "process", "pricing", "contact"];
 const featureIcons = [QrCode, Smartphone, Palette, RefreshCw, Utensils, Phone];
-export function Landing() {
+export function Landing({
+  settings = defaults,
+}: {
+  settings?: PlatformSettings;
+}) {
+  const platform = settings;
   const { locale, changeLocale } = useLocale();
   const t = dictionaries[locale];
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [privacy, setPrivacy] = useState(false);
   return (
     <>
       <a className="skip-link" href="#main">
@@ -324,7 +327,9 @@ export function Landing() {
                 {t.order}
                 <ArrowRight size={18} />
               </a>
-              <p className="pricing-terms">{t.terms}</p>
+              <p className="pricing-terms">
+                {platform.serviceTerms[locale] || t.terms}
+              </p>
             </article>
           </div>
         </section>
@@ -357,7 +362,7 @@ export function Landing() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Telegram
+                  {t.writeTelegram}
                   <ArrowUpRight size={18} />
                 </a>
               )}
@@ -366,11 +371,19 @@ export function Landing() {
                   className={buttonVariants({ variant: "light" })}
                   href={`mailto:${platform.email}`}
                 >
-                  {platform.email}
+                  {t.writeEmail}
                   <ArrowUpRight size={18} />
                 </a>
               )}
-              {!platform.telegramUrl && !platform.email && (
+              {platform.phone && (
+                <a
+                  className={buttonVariants({ variant: "light" })}
+                  href={`tel:${platform.phone}`}
+                >
+                  {platform.phone}
+                </a>
+              )}
+              {!platform.telegramUrl && !platform.email && !platform.phone && (
                 <p className="contact-pending">{t.contactPending}</p>
               )}
             </div>
@@ -390,21 +403,17 @@ export function Landing() {
             <p>{t.footerDesc}</p>
           </div>
           <div className="footer-right">
-            <button onClick={() => setPrivacy(true)}>{t.privacy}</button>
+            <div className="footer-documents">
+              <Link href="/privacy">{t.privacy}</Link>
+              <Link href="/offer">{t.offer}</Link>
+            </div>
             <p>
               © {new Date().getFullYear()} {platform.name}. {t.rights}
             </p>
+            {platform.executorName && <p className="footer-owner">{platform.executorName}</p>}
           </div>
         </div>
       </footer>
-      <Modal
-        open={privacy}
-        onOpenChange={setPrivacy}
-        title={t.privacyTitle}
-        closeLabel={t.close}
-      >
-        <p>{t.privacyText}</p>
-      </Modal>
     </>
   );
 }
