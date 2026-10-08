@@ -61,8 +61,8 @@ export const dictionaries = {
     examplesEyebrow: "HAR BIR JOYNING O‘Z TA’MI BOR",
     examplesTitle: "Sizning uslubingiz. Sizning menuingiz.",
     examplesSubtitle:
-      "Uch xil yo‘nalish uchun dizayn namunalari. Bular haqiqiy restoranlar emas.",
-    sample: "Dizayn namunasi",
+      "Uchta interaktiv demo menu. Bular haqiqiy restoranlar emas.",
+    sample: "Demo menu",
     preview: "Ko‘rib chiqish",
     exampleTypes: ["Milliy oshxona", "Zamonaviy qahvaxona", "Burger va gril"],
     exampleNotes: [
@@ -155,7 +155,7 @@ export const dictionaries = {
       "Контакты",
     ],
     order: "Заказать меню",
-    view: "Посмотреть примеры",
+    view: "Посмотреть демо",
     badge: "Для ресторанов Узбекистана",
     title: "Красивое",
     accent: "онлайн-меню",
@@ -206,9 +206,8 @@ export const dictionaries = {
     ],
     examplesEyebrow: "У КАЖДОГО МЕСТА СВОЙ ВКУС",
     examplesTitle: "Ваш стиль. Ваше меню.",
-    examplesSubtitle:
-      "Примеры оформления для трёх направлений. Это вымышленные заведения.",
-    sample: "Пример дизайна",
+    examplesSubtitle: "Три интерактивных демо-меню. Это вымышленные заведения.",
+    sample: "Демонстрационное меню",
     preview: "Посмотреть",
     exampleTypes: [
       "Национальная кухня",

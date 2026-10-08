@@ -1,6 +1,9 @@
 "use client";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useLocale } from "@/lib/i18n/use-locale";
+import { formatPriceUZS } from "@/lib/restaurant/price";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -23,35 +26,11 @@ import { buttonVariants } from "@/components/ui/button";
 import { Modal } from "@/components/ui/dialog";
 const anchors = ["features", "examples", "process", "pricing", "contact"];
 const featureIcons = [QrCode, Smartphone, Palette, RefreshCw, Utensils, Phone];
-function subscribe(callback: () => void) {
-  window.addEventListener("dasturxon-locale", callback);
-  return () => window.removeEventListener("dasturxon-locale", callback);
-}
-function snapshot(): Locale {
-  try {
-    return localStorage.getItem("dasturxon-locale") === "ru" ? "ru" : "uz";
-  } catch {
-    return "uz";
-  }
-}
-function serverSnapshot(): Locale {
-  return "uz";
-}
 export function Landing() {
-  const locale = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
+  const { locale, changeLocale } = useLocale();
   const t = dictionaries[locale];
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [preview, setPreview] = useState<number | null>(null);
   const [privacy, setPrivacy] = useState(false);
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
-  function changeLocale(next: Locale) {
-    try {
-      localStorage.setItem("dasturxon-locale", next);
-    } catch {}
-    window.dispatchEvent(new Event("dasturxon-locale"));
-  }
   return (
     <>
       <a className="skip-link" href="#main">
@@ -135,10 +114,10 @@ export function Landing() {
               </h1>
               <p className="hero-description">{t.subtitle}</p>
               <div className="hero-buttons">
-                <a href="#examples" className={buttonVariants()}>
+                <Link href="/demo" className={buttonVariants()}>
                   {t.view}
                   <ArrowUpRight size={19} />
-                </a>
+                </Link>
                 <a
                   href="#contact"
                   className={buttonVariants({ variant: "secondary" })}
@@ -279,12 +258,13 @@ export function Landing() {
                       <h3>{name}</h3>
                       <p>{t.exampleNotes[i]}</p>
                     </div>
-                    <button
+                    <Link
                       aria-label={`${t.preview}: ${name}`}
-                      onClick={() => setPreview(i)}
+                      href={`/demo/${["chinor", "kun-coffee", "olova"][i]}`}
+                      className="example-open"
                     >
                       <ArrowUpRight size={24} />
-                    </button>
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -330,7 +310,7 @@ export function Landing() {
               <h3>
                 {platform.priceUZS === null
                   ? t.pricePending
-                  : `${new Intl.NumberFormat(locale === "uz" ? "uz-UZ" : "ru-RU").format(platform.priceUZS)} ${t.currency}`}
+                  : `${formatPriceUZS(platform.priceUZS)} ${t.currency}`}
               </h3>
               <ul>
                 {t.included.map((item) => (
@@ -417,33 +397,6 @@ export function Landing() {
           </div>
         </div>
       </footer>
-      <Modal
-        open={preview !== null}
-        onOpenChange={(open) => {
-          if (!open) setPreview(null);
-        }}
-        title={
-          preview === null
-            ? t.sample
-            : ["Chinor", "KUN Coffee", "Olova"][preview]
-        }
-        closeLabel={t.close}
-      >
-        <p>{t.previewNote}</p>
-        {preview !== null && (
-          <div className={`preview-panel theme-${preview}`}>
-            <p>{t.exampleTypes[preview]}</p>
-            {preview === 0 ? (
-              <Image src="/plov.svg" alt="" width={480} height={340} />
-            ) : preview === 1 ? (
-              <Coffee size={100} />
-            ) : (
-              <Utensils size={100} />
-            )}
-            <p>{t.exampleNotes[preview]}</p>
-          </div>
-        )}
-      </Modal>
       <Modal
         open={privacy}
         onOpenChange={setPrivacy}

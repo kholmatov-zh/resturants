@@ -23,8 +23,16 @@ export function Modal({
         <Dialog.Content
           className="dialog-content"
           aria-describedby={undefined}
-          onOpenAutoFocus={() => { opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null; }}
-          onCloseAutoFocus={(event) => { event.preventDefault(); opener.current?.focus(); }}
+          onOpenAutoFocus={() => {
+            opener.current =
+              document.activeElement instanceof HTMLElement
+                ? document.activeElement
+                : null;
+          }}
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            opener.current?.focus();
+          }}
         >
           <Dialog.Title className="dialog-title">{title}</Dialog.Title>
           {children}

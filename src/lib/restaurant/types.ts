@@ -1,0 +1,42 @@
+export type LocalizedText = { uz: string; ru: string };
+export type MenuCategory = {
+  id: string;
+  name: LocalizedText;
+  sortOrder: number;
+  isVisible: boolean;
+};
+export type MenuItem = {
+  id: string;
+  restaurantId: string;
+  categoryId: string;
+  name: LocalizedText;
+  description: LocalizedText;
+  price: number;
+  image?: string;
+  imageKind?: "photo" | "illustration";
+  isAvailable: boolean;
+  isVisible: boolean;
+  isArchived: boolean;
+  sortOrder: number;
+};
+export type RestaurantMenu = {
+  id: string;
+  slug: string;
+  name: string;
+  description: LocalizedText;
+  address: LocalizedText;
+  workingHours: LocalizedText;
+  phone: string | null;
+  mapUrl: string | null;
+  instagramUrl?: string;
+  telegramUrl?: string;
+  primaryColor: string;
+  secondaryColor: string;
+  cover: string;
+  coverKind: "photo" | "illustration";
+  monogram: string;
+  status: "draft" | "published" | "archived";
+  categories: MenuCategory[];
+  items: MenuItem[];
+  isDemo: boolean;
+};
